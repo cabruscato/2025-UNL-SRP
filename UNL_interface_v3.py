@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 import numpy as np
 from tkinter import *
 
@@ -129,10 +123,3 @@ CI_footnote.grid(row=7, column=0, columnspan=3, pady=0, sticky='n')
 root.bind('<Return>', submit)
 
 root.mainloop()
-
-
-# In[ ]:
-
-
-
-
