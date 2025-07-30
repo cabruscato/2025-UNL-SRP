@@ -8,5 +8,4 @@ Contact info:
 
 Email: abruscatochristopher@gmail.com
 
-Eastern Washington University (Cheney, WA)
-Expected graduation date: June 2026
+Home school: Eastern Washington University (Cheney, WA)
