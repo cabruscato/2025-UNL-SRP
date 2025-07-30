@@ -1,0 +1,24 @@
+(Windows Defender may prevent you from running)
+(make sure pip and pyinstaller are installed/updated)
+
+open "CMD.exe Prompt" within Anaconda Navigator
+
+# < > indicate what is to be typed in CMD prompt 
+	# do not type these into CMD prompt
+
+# "filepath" must be entire path and bracketed by " "
+
+type <cd "folder name"> 
+
+	# change directory to folder containing .py & .ico files
+
+type <pyinstaller "filepath" -F -w -i "filepath">
+
+	# generates .exe file with .ico file as file icon
+	# -F: creates a single file for running .exe
+	# -w: suppresses window that opens alongside .exe file
+	# -i: creates an icon for .exe file 
+		# must be .ico file
+		# must include entire filepath w/ " "
+
+.exe file is located in the "dist" folder inside same folder as .py file
