@@ -62,43 +62,47 @@ def submit(event):
 root = Tk()
 
 root.title('Doped:HfO₂ Thin Film Thickness Calculator')
-root.config(bg='#d00000', padx=20, pady=10)
+root.config(bg='#d00000', padx=25, pady=10)
 
 unl_logo_file = r"C:\Users\abrus\Active Academics\UNL2025_SRP\Quantum Materials Project\GUI_calculator\UNL_icon.png"
 icon = PhotoImage(file=unl_logo_file)
 root.iconphoto(True, icon)
 
-title = Label(root, text='Film Thickness Estimator', font=('Times New Roman', 24, 'bold'), fg='white', bg='#d00000')
+instructLabel = Label(root, text='Please enter growth conditions below', font=('Times New Roman', 24, ('italic', 'bold')), fg='white', bg='#d00000')
 
-shotsLabel = Label(root, text='# of laser shots:', font=('Times New Roman', 16), fg='white', bg='#d00000')
-shotsEntry = Entry(root, font=('Times New Roman', 16), width=15)
-shots_unitsLabel = Label(root, text='shots', font=('Times New Roman', 16), fg='white', bg='#d00000')
+emptyLabel1 = Label(root, text='you found me', font=('Times New Roman', 12, 'bold'), fg='#d00000', bg='#d00000')
 
-pressLabel = Label(root, text='O₂ growth pressure:', font=('Times New Roman', 16), fg='white', bg='#d00000')
-pressEntry = Entry(root, font=('Times New Roman', 16), width=15)
+shotsLabel = Label(root, text='# of laser shots:', font=('Times New Roman', 20), fg='white', bg='#d00000')
+shotsEntry = Entry(root, font=('Times New Roman', 20), width=15)
+shots_unitsLabel = Label(root, text='shots', font=('Times New Roman', 20), fg='white', bg='#d00000')
+
+pressLabel = Label(root, text='O₂ growth pressure:', font=('Times New Roman', 20), fg='white', bg='#d00000')
+pressEntry = Entry(root, font=('Times New Roman', 20), width=15)
 pressEntry.insert(0, '70')
-press_unitsLabel = Label(root, text='mTorr', font=('Times New Roman', 16), fg='white', bg='#d00000')
+press_unitsLabel = Label(root, text='mTorr', font=('Times New Roman', 20), fg='white', bg='#d00000')
 
-tempLabel = Label(root, text='Growth temperature:', font=('Times New Roman', 16), fg='white', bg='#d00000')
-tempEntry = Entry(root, font=('Times New Roman', 16), width=15)
+tempLabel = Label(root, text='Growth temperature:', font=('Times New Roman', 20), fg='white', bg='#d00000')
+tempEntry = Entry(root, font=('Times New Roman', 20), width=15)
 tempEntry.insert(0, '890')
 tempEntry.config(cursor='arrow', state=DISABLED)
-temp_unitsLabel = Label(root, text='°C', font=('Times New Roman', 16), fg='white', bg='#d00000')
+temp_unitsLabel = Label(root, text='°C', font=('Times New Roman', 20), fg='white', bg='#d00000')
 
-nrgLabel = Label(root, text='Laser energy:', font=('Times New Roman', 16), fg='white', bg='#d00000')
-nrgEntry = Entry(root, font=('Times New Roman', 16), width=15)
+nrgLabel = Label(root, text='Laser energy:', font=('Times New Roman', 20), fg='white', bg='#d00000')
+nrgEntry = Entry(root, font=('Times New Roman', 20), width=15)
 nrgEntry.insert(0, '195')
 nrgEntry.config(cursor='arrow', state=DISABLED)
-nrg_unitsLabel = Label(root, text='mJ', font=('Times New Roman', 16), fg='white', bg='#d00000')
+nrg_unitsLabel = Label(root, text='mJ', font=('Times New Roman', 20), fg='white', bg='#d00000')
 
-button = Button(root, text='Calculate', font=('Times New Roman', 20, 'bold'), fg='white', bg='#d00000', bd=4, relief=RAISED, 
+button = Button(root, text='Calculate', font=('Times New Roman', 24, 'bold'), fg='white', bg='#d00000', bd=4, relief=RAISED, 
                 cursor='exchange', activebackground='black', activeforeground='#d00000', command=calculate_thickness)
 
-readout = Label(root, font=('Times New Roman', 22, 'bold'), fg='white', bg='#d00000', bd=2, relief=SUNKEN, height=2, width=20)
+emptyLabel2 = Label(root, text='you found me', font=('Times New Roman', 12, 'bold'), fg='#d00000', bg='#d00000')
 
-CI_footnote = Label(root, text='95% CI: ± 1.11 nm', font=('Times New Roman', 16, 'italic'), fg='white', bg='#d00000')
+thicknessLabel = Label(root, text='Estimated Film Thickness', font=('Times New Roman', 24, ('underline', 'bold')), fg='white', bg='#d00000')
+readout = Label(root, font=('Times New Roman', 24, 'bold'), fg='white', bg='#d00000', bd=2, relief=SUNKEN, height=2, width=26)
+CI_footnote = Label(root, text='95% Confidence Interval: ± 1.11 nm', font=('Times New Roman', 22, 'bold'), fg='white', bg='#d00000')
 
-title.grid(row=0, column=0, columnspan=3, pady=8, padx=4, sticky='n')
+instructLabel.grid(row=0, column=0, columnspan=3, pady=35)
 
 shotsLabel.grid(row=1, column=0, padx=2, pady=4, sticky='e')
 shotsEntry.grid(row=1, column=1, pady=4)
@@ -116,9 +120,15 @@ nrgLabel.grid(row=4, column=0, padx=2, pady=4, sticky='e')
 nrgEntry.grid(row=4, column=1, pady=4)
 nrg_unitsLabel.grid(row=4, column=2, padx=2, pady=4, sticky='w')
 
-button.grid(row=5, column=0, columnspan=3, pady=16)
-readout.grid(row=6, column=0, columnspan=3, pady=4)
-CI_footnote.grid(row=7, column=0, columnspan=3, pady=0, sticky='n')
+button.grid(row=5, column=0, columnspan=3, pady=45)
+
+emptyLabel1.grid(row=7, column=0, columnspan=3, pady=10)
+
+thicknessLabel.grid(row=8, column=0, columnspan=3, pady=6, sticky='s')
+readout.grid(row=9, column=0, columnspan=3, pady=6)
+CI_footnote.grid(row=10, column=0, columnspan=3, pady=6)
+
+emptyLabel2.grid(row=11, column=0, columnspan=3, pady=30)
 
 root.bind('<Return>', submit)
 
